@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "canisters": {
+    "movie_backend": {
+      "type": "rust",
+      "package": "movie_backend",
+      "candid": "src/movie_backend/movie_backend.did"
+    }
+  },
+  "output_env_file": ".env"
+}

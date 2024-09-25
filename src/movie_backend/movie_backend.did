@@ -1,0 +1,21 @@
+type Booking = record {
+  id : nat64;
+  movie_id : nat64;
+  created_at : nat64;
+  user_id : nat64;
+  showtime : nat64;
+};
+type Movie = record {
+  id : nat64;
+  title : text;
+  duration : nat32;
+  showtimes : vec nat64;
+};
+type Result = variant { Ok : Booking; Err : text };
+service : {
+  add_movie : (text, nat32, vec nat64) -> (Movie);
+  book_ticket : (nat64, nat64, nat64) -> (Result);
+  cancel_booking : (nat64) -> (Result);
+  get_movies : () -> (vec Movie) query;
+  get_user_bookings : (nat64) -> (vec Booking) query;
+}
